@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kanban/core/app_config.dart';
 import 'package:kanban/core/router/app_router.dart';
 import 'package:kanban/core/theme/app_theme.dart';
-import 'package:kanban/l10n/l10n.dart';
+import 'package:kanban/l10n/arb/app_localizations.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kanban/core/router/app_routes.dart';
 import 'package:kanban/features/counter/counter.dart';
+import 'package:kanban/features/navigation/view/navigation_page.dart';
 
 class AppRouter {
   static final GlobalKey<NavigatorState> _navigatorKey =
@@ -18,7 +19,7 @@ class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const CounterPage(),
+        builder: (context, state) => const NavigationPage(),
       ),
       GoRoute(
         name: AppRoutes.counter,
