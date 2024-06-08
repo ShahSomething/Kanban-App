@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kanban/counter/counter.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kanban/core/app_config.dart';
+import 'package:kanban/core/router/app_router.dart';
+import 'package:kanban/core/theme/app_theme.dart';
 import 'package:kanban/l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -7,16 +10,15 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        ),
-        useMaterial3: true,
+    return ScreenUtilInit(
+      designSize: AppConfig.appDimensions,
+      builder: (context, child) => MaterialApp.router(
+        routerConfig: AppRouter.router,
+        theme: AppTheme.darkTheme,
+        themeMode: ThemeMode.dark,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
       ),
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
     );
   }
 }

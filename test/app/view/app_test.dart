@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:kanban/app/app.dart';
-import 'package:kanban/counter/counter.dart';
+import 'package:kanban/features/counter/counter.dart';
 
 void main() {
   group('App', () {
