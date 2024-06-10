@@ -4,5 +4,8 @@
     "@counterAppBarTitle": {
         "description": "Text shown in the AppBar of the Counter Page"
     },
-    "home": "Home"
+    "home": "Home",
+    "board": "Board",
+    "history": "History",
+    "addTask": "Add Task"
 }

@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:kanban/core/constants/app_assets.dart';
 import 'package:kanban/core/extensions/context.dart';
+import 'package:kanban/features/board/presentation/view/board_page.dart';
 import 'package:kanban/features/navigation/bloc/navigation_bloc.dart';
 import 'package:kanban/features/navigation/bloc/navigation_event.dart';
 import 'package:kanban/features/navigation/bloc/navigation_state.dart';
@@ -52,6 +53,7 @@ class NavigationView extends StatelessWidget {
             },
             child: getViewForIndex(state.currentIndex),
           ),
+          extendBody: true,
           bottomNavigationBar: ClipRRect(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30.r),
@@ -68,12 +70,12 @@ class NavigationView extends StatelessWidget {
               },
               items: [
                 _bottomNavItem(
-                  iconPath: SvgAssets.home,
-                  label: l10n.home,
+                  iconPath: SvgAssets.kanban,
+                  label: "Board",
                   context: context,
                 ),
                 _bottomNavItem(
-                  iconPath: SvgAssets.home,
+                  iconPath: SvgAssets.history2,
                   label: 'History',
                   context: context,
                 ),
@@ -125,12 +127,7 @@ class NavigationView extends StatelessWidget {
   Widget getViewForIndex(int index) {
     switch (index) {
       case 0:
-        return const ColoredBox(
-          color: Colors.blue,
-          child: Center(
-            child: Text('Home'),
-          ),
-        );
+        return const BoardPage();
       case 1:
         return const ColoredBox(
           color: Colors.red,
