@@ -1,4 +1,4 @@
-import 'package:kanban/l10n/arb/app_localizations.dart';
+import 'app_localizations.dart';
 
 /// The translations for Spanish Castilian (`es`).
 class AppLocalizationsEs extends AppLocalizations {
@@ -8,5 +8,14 @@ class AppLocalizationsEs extends AppLocalizations {
   String get counterAppBarTitle => 'Contador';
 
   @override
-  String get home => 'Home';
+  String get home => 'Home ES';
+
+  @override
+  String get board => 'Board ES';
+
+  @override
+  String get history => 'History ES';
+
+  @override
+  String get addTask => 'Add Task ES';
 }

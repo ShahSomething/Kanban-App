@@ -46,7 +46,7 @@ Future<void> _initDependencies() async {
         sendTimeout: const Duration(
           seconds: 20,
         ),
-        baseUrl: 'https://api.todoist.com/rest/v2/', // TODO add base url
+        baseUrl: 'https://api.todoist.com/rest/v2', // TODO add base url
       ),
     ),
   );

@@ -5,8 +5,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
-import 'package:kanban/l10n/arb/app_localizations_en.dart';
-import 'package:kanban/l10n/arb/app_localizations_es.dart';
+import 'app_localizations_en.dart';
+import 'app_localizations_es.dart';
 
 /// Callers can lookup localized strings with an instance of AppLocalizations
 /// returned by `AppLocalizations.of(context)`.
@@ -16,7 +16,7 @@ import 'package:kanban/l10n/arb/app_localizations_es.dart';
 /// `supportedLocales` list. For example:
 ///
 /// ```dart
-/// import 'arb/app_localizations.dart';
+/// import 'gen_l10n/app_localizations.dart';
 ///
 /// return MaterialApp(
 ///   localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -57,12 +57,11 @@ import 'package:kanban/l10n/arb/app_localizations_es.dart';
 /// Select and expand the newly-created Localizations item then, for each
 /// locale your application supports, add a new item and select the locale
 /// you wish to add from the pop-up menu in the Value field. This list should
-/// be consistent with the languages listed in the
-/// AppLocalizations.supportedLocales
+/// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
   AppLocalizations(String locale)
-      : localeName = intl.Intl.canonicalizedLocale(locale);
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -94,7 +93,7 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
-    Locale('es'),
+    Locale('es')
   ];
 
   /// Text shown in the AppBar of the Counter Page
@@ -108,6 +107,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Home'**
   String get home;
+
+  /// No description provided for @board.
+  ///
+  /// In en, this message translates to:
+  /// **'Board'**
+  String get board;
+
+  /// No description provided for @history.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get history;
+
+  /// No description provided for @addTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Task'**
+  String get addTask;
 }
 
 class _AppLocalizationsDelegate

@@ -1,12 +1,14 @@
 import 'package:equatable/equatable.dart';
+import 'package:kanban/core/extensions/duration.dart';
 
 class BoardTask extends Equatable {
   final String id;
   final String projectId;
-  final String parentId;
+  final String? parentId;
+  final String sectionId;
   final String content;
   final String description;
-  final DateTime dueDate;
+  final DateTime? dueDate;
   final DateTime createdAt;
   final int commentsCount;
   final bool isCompleted;
@@ -16,7 +18,8 @@ class BoardTask extends Equatable {
   const BoardTask({
     required this.id,
     required this.projectId,
-    required this.parentId,
+    this.parentId,
+    required this.sectionId,
     required this.content,
     required this.description,
     required this.dueDate,
@@ -41,6 +44,7 @@ class BoardTask extends Equatable {
     Duration? duration,
     List<String>? labels,
     int? priority,
+    String? sectionId,
   }) {
     return BoardTask(
       id: id ?? this.id,
@@ -55,6 +59,7 @@ class BoardTask extends Equatable {
       duration: duration ?? this.duration,
       labels: labels ?? this.labels,
       priority: priority ?? this.priority,
+      sectionId: sectionId ?? this.sectionId,
     );
   }
 
@@ -62,14 +67,12 @@ class BoardTask extends Equatable {
     return <String, dynamic>{
       'id': id,
       'project_id': projectId,
-      'parent_id': parentId,
+      'section_id': sectionId,
       'content': content,
       'description': description,
-      'due_date': dueDate.millisecondsSinceEpoch,
-      'created_at': createdAt.millisecondsSinceEpoch,
-      'comments_count': commentsCount,
-      'is_completed': isCompleted,
-      'duration': duration,
+      'due_datetime': dueDate?.toIso8601String(),
+      'duration': duration?.duration,
+      "duration_unit": duration?.unit,
       'labels': labels,
       'priority': priority,
     };
@@ -79,18 +82,20 @@ class BoardTask extends Equatable {
     return BoardTask(
       id: map['id'] as String,
       projectId: map['project_id'] as String,
-      parentId: map['parent_id'] as String,
+      parentId: map['parent_id'],
       content: map['content'] as String,
       description: map['description'] as String,
       dueDate: DateTime.parse(map['due']['datetime'] as String),
       createdAt: DateTime.parse(map['created_at'] as String),
       commentsCount: map['comments_count'] as int,
       isCompleted: map['is_completed'] as bool,
-      // duration: Duration.fromMap(map['duration'] as Map<String,dynamic>),
+      duration:
+          DurationExtension.fromMap(map['duration'] as Map<String, dynamic>),
       labels: List<String>.from(
         (map['labels'] as List<String>),
       ),
       priority: map['priority'] as int,
+      sectionId: map['section_id'] as String,
     );
   }
 
@@ -108,5 +113,6 @@ class BoardTask extends Equatable {
         duration,
         labels,
         priority,
+        sectionId,
       ];
 }

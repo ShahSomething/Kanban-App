@@ -6,6 +6,8 @@
     },
     "home": "Home ES",
     "board": "Board ES",
-    "history": "History ES"
+    "history": "History ES",
+    "addTask": "Add Task ES",
+    "loremIpsum": "Lorem Ipsum"
 
 }

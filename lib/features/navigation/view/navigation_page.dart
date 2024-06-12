@@ -39,7 +39,7 @@ class NavigationView extends StatelessWidget {
             onPressed: () {
               //context.read<NavigationBloc>().add(NavigationIndexUpdated(1));
             },
-            label: const Text('Add Task'),
+            label: Text(l10n.addTask),
           ),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
@@ -71,12 +71,12 @@ class NavigationView extends StatelessWidget {
               items: [
                 _bottomNavItem(
                   iconPath: SvgAssets.kanban,
-                  label: "Board",
+                  label: l10n.board,
                   context: context,
                 ),
                 _bottomNavItem(
                   iconPath: SvgAssets.history2,
-                  label: 'History',
+                  label: l10n.history,
                   context: context,
                 ),
               ],

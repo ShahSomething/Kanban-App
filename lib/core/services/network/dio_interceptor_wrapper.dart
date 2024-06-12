@@ -15,7 +15,7 @@ class DioCustomInterceptors extends Interceptor {
     RequestInterceptorHandler handler,
   ) async {
     const accessToken =
-        ""; // TODO: Get the access token from the shared preference
+        "24adb4d287f845dfef8e5c5e76460253041de70f"; // TODO: Get the access token from the shared preference
     options.headers['Authorization'] = 'Bearer $accessToken';
 
     super.onRequest(options, handler);

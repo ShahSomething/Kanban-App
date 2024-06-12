@@ -7,5 +7,6 @@
     "home": "Home",
     "board": "Board",
     "history": "History",
-    "addTask": "Add Task"
+    "addTask": "Add Task",
+    "loremIpsum": "Lorem Ipsum"
 }

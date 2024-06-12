@@ -12,7 +12,7 @@ import 'package:path_provider/path_provider.dart';
 abstract class IDioWrapper {
   Future<Response<dynamic>> onPost({
     required String api,
-    required dynamic data,
+    dynamic data,
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? headers,
   });
@@ -65,7 +65,7 @@ class DioWrapperImpl extends IDioWrapper {
   @override
   Future<Response<dynamic>> onPost({
     required String api,
-    required dynamic data,
+    dynamic data,
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? headers,
   }) async {
