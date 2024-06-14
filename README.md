@@ -10,6 +10,14 @@ A Very Good Project created by Very Good CLI.
 
 ---
 
+## App Demo
+
+
+
+https://github.com/ShahSomething/Kanban-App/assets/63047096/2fc7a557-0a4a-4ba9-84a8-2f6785239997
+
+
+
 ## Getting Started 🚀
 
 This project contains 3 flavors:
