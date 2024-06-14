@@ -21,13 +21,10 @@ Future<void> _initDependencies() async {
   locator.registerSingleton<Connectivity>(
     Connectivity(),
   );
-  locator.registerSingletonWithDependencies<INetworkInfo>(
-    () => NetworkInfoImpl(
+  locator.registerSingleton<INetworkInfo>(
+    NetworkInfoImpl(
       connectivity: locator<Connectivity>(),
     ),
-    dependsOn: [
-      Connectivity,
-    ],
   );
   locator.registerSingleton<Logger>(
     Logger(),
@@ -57,18 +54,13 @@ Future<void> _initDependencies() async {
     hiveBoxName: 'kanban',
   );
 
-  locator.registerSingletonWithDependencies<IDioWrapper>(
-    () => DioWrapperImpl(
+  locator.registerSingleton<IDioWrapper>(
+    DioWrapperImpl(
       dio: locator<Dio>(),
       dioErrorHandler: locator<DioErrorHandler>(),
       logger: locator<Logger>(),
       cacheStore: cacheStore,
     ),
-    dependsOn: [
-      Dio,
-      DioErrorHandler,
-      Logger,
-    ],
   );
 }
 
