@@ -19,7 +19,7 @@ dependencies:
   figma_squircle: ^0.5.3
   flutter:
     sdk: flutter
-  flutter_bloc: ^8.1.5
+  flutter_bloc: ^8.1.6
 
   flutter_localizations:
     sdk: flutter
